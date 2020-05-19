@@ -1,3 +1,0 @@
-myData = dir('..\DATA_DIR\**\*.edf');
-charsToValidate = ['\d*E[OC]*.edf';
-validateFileNames = cellfun('isempty',regexp({myData.name},charsToValidate));

@@ -1,5 +1,4 @@
-myFiles = dir('..\DATA_DIR\**\*.edf');
+MyFiles = dir('..\DATA_DIR\**\*.edf');
 charToValidate = '\d*E[OC]';
-validateFileNames = cellfun('isempty',regexp({myFiles.name},charToValidate));
-paths = structfun('strcat',myFiles
-myData = cellfun('edfread',cell([myFiles.folder '\' myFiles.name]));
+validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
+[MyData] = build_struct(MyFiles);

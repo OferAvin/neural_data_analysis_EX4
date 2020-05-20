@@ -2,7 +2,6 @@ clear all
 close all
 
 %% expariment param
-
 fs = 256; % sampling frequency, Hz
 dt = 1/fs; % time step [sec]
 f = 6:0.1:14; % Define a frequency band to picture Alpha waves
@@ -15,31 +14,19 @@ t = 0:dt:dur; % times vector [sec]
 %% data handling
 
 MyFiles = dir('..\DATA_DIR\**\*.edf');
+charToValidate = '\d*E[OC]';
 cond = ["EC","EO"];
 numOfSub = length(MyFiles)/length(cond);
-charToValidate = '\d*E[OC]';
 validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
-MyData = BuildStruct(MyFiles,numOfSub,cond);
+MyData = buildStruct(MyFiles,numOfSub,cond);
 
 for i = 1:numOfSub
     curSubject = char("subject" + i);
     for j = 1:length(cond)
-        dataType = char(cond(j) + "_data");
-        dataType = MyData.(curSbject).(cond(j)).record(19,:);
-         = fft(dataType); 
-        N = length(dataType);
-        
+       title = char(cond(j) + "_data");
+       [spectromVecNorm] =  spectromPower(data,condition,curSubject,electrodeNum)
+
+        plot(freq,dataType)
     end
-    
-y = fft(MyData.subject1.EC.record(19,:));
-M = length(y);
-freq = (0:(M)-1)./((M/2)*fs); 
-y = y/norm(y);
-ps2 = abs(y).^2;
-plot(freq,ps2)
+end
 
-
-
- 
-    
-    

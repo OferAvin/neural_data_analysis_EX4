@@ -8,7 +8,7 @@ f = 6:0.1:14; % Define a frequency band to picture Alpha waves
 dur = 180; % duration of signal [sec]
 t = 0:dt:dur; % times vector [sec]
 %N = length(t); % number of time components;        
-
+electrodeNum = 19;
 
 
 %% data handling
@@ -23,14 +23,16 @@ MyData = buildStruct(MyFiles,numOfSub,cond);
 for i = 1:numOfSub
     curSubject = char("subject" + i);
     for j = 1:length(cond)
-        dataType = char(cond(j) + "_data");
-        dataType = MyData.(curSubject).(cond(j)).record(19,:);
-        dataType = fft(dataType); 
-        N = length(dataType);
-        freq = (0:(N)-1)./((N/2)*fs); 
-        dataType = dataType/norm(dataType);
-        dataType = abs(dataType).^2;
-        plot(freq,dataType)
+       title = char(cond(j) + "_data");
+       spectromVec =  spectromPower(MyData,cond(j),curSubject,electrodeNum);
+       plot(spectromVec)
+    end
+end
+
+N = 10;
+for k=0:N-1
+    for l=0:N-1
+        w(k+1,l+1)=cos((2*pi*k*l)/N)-1*sin((2*pi*k*l)/N);
     end
 end
 

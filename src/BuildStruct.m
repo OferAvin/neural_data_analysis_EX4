@@ -1,3 +1,5 @@
+%this function build the struct for the expairiment for each subject and
+%each condition
 function [MyData] = BuildStruct(dataDir,numOfSubject,cond)
     MyData = struct();
     for i = 1:numOfSubject

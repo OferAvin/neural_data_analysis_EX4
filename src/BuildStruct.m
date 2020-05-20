@@ -1,4 +1,7 @@
+
 function [MyData] = buildStruct(dataDir,numOfSubject,cond)
+%this function build the struct for the expairiment for each subject and
+%each condition
     MyData = struct();
     for i = 1:numOfSubject
         curSubject = char("subject" + i);

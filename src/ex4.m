@@ -7,5 +7,6 @@ validateFileNames = cellfun('isempty',regexp({myFiles.name},charToValidate));
 
 cond = ["EC","EO"];
 numOfSub = length(MyFiles)/length(cond);
-MyData = BuildStruct(MyFiles,numOfSub,cond);
+MyData = buildStruct(MyFiles,numOfSub,cond);
+
 

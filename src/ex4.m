@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 clear all
 close all
 
 %% expariment param
-
 fs = 256; % sampling frequency, Hz
 dt = 1/fs; % time step [sec]
 f = 6:0.1:14; % Define a frequency band to picture Alpha waves
@@ -14,16 +12,13 @@ t = 0:dt:dur; % times vector [sec]
 
 
 %% data handling
-=======
-clc;
-clear;
->>>>>>> 7729ab39857adec48fa936a0bb2dac9f3ca5492b
 
 MyFiles = dir('..\DATA_DIR\**\*.edf');
 charToValidate = '\d*E[OC]';
+cond = ["EC","EO"];
+numOfSub = length(MyFiles)/length(cond);
 validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
-<<<<<<< HEAD
-MyData = BuildStruct(MyFiles,numOfSub,cond);
+MyData = buildStruct(MyFiles,numOfSub,cond);
 
 for i = 1:numOfSub
     curSubject = char("subject" + i);
@@ -39,19 +34,3 @@ for i = 1:numOfSub
     end
 end
 
-    
-
-
-
-
- 
-    
-    
-=======
-
-cond = ["EC","EO"];
-numOfSub = length(MyFiles)/length(cond);
-MyData = buildStruct(MyFiles,numOfSub,cond);
-
-
->>>>>>> 7729ab39857adec48fa936a0bb2dac9f3ca5492b

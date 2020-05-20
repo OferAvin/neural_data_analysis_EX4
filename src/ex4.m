@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 clear all
 close all
 
@@ -13,12 +14,15 @@ window = 5*fs;
 %pwelch(x, window, noverlap, f, fs);
 
 %% data handling
+=======
+clc;
+clear;
+>>>>>>> 7729ab39857adec48fa936a0bb2dac9f3ca5492b
 
 MyFiles = dir('..\DATA_DIR\**\*.edf');
-cond = ["EC","EO"];
-numOfSub = length(MyFiles)/length(cond);
 charToValidate = '\d*E[OC]';
 validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
+<<<<<<< HEAD
 MyData = BuildStruct(MyFiles,numOfSub,cond);
 
     
@@ -26,3 +30,11 @@ MyData = BuildStruct(MyFiles,numOfSub,cond);
     
     
     
+=======
+
+cond = ["EC","EO"];
+numOfSub = length(MyFiles)/length(cond);
+MyData = buildStruct(MyFiles,numOfSub,cond);
+
+
+>>>>>>> 7729ab39857adec48fa936a0bb2dac9f3ca5492b

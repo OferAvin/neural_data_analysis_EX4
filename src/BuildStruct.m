@@ -1,4 +1,4 @@
-function [MyData] = BuildStruct(dataDir,numOfSubject,cond)
+function [MyData] = buildStruct(dataDir,numOfSubject,cond)
     MyData = struct();
     for i = 1:numOfSubject
         curSubject = char("subject" + i);

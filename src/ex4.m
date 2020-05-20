@@ -10,9 +10,5 @@ cond = ["EC","EO"];
 numOfSub = length(MyFiles)/length(cond);
 charToValidate = '\d*E[OC]';
 validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
-<<<<<<< HEAD
 MyData = BuildStruct(MyFiles,numOfSub,cond);
 
-=======
-[MyData] = Build_struct(MyFiles);
->>>>>>> ofer

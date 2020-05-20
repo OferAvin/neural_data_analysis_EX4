@@ -4,12 +4,11 @@ close all
 %% expariment param
 fs = 256; % sampling frequency, Hz
 dt = 1/fs; % time step [sec]
-f = 6:0.1:14; % Define a frequency band to picture Alpha waves
+f = 6:0.1:16; % Define a frequency band to picture Alpha waves
 dur = 1; % duration of signal [sec]
 t = 0:dt:dur; % times vector [sec]
 N = length(t); % number of time components
-noverlap = [];
-window = 5*fs;
+%noverlap = [];
 %pwelch(x, window, noverlap, f, fs);
 
 %% data handling

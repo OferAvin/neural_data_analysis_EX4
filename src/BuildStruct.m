@@ -5,8 +5,9 @@ function [MyData] = BuildStruct(dataDir,numOfSubject,cond)
         for j = 1:length(cond)
             nameToLook = char(i + ".*" + cond(j));
             fileIndex = regexp({dataDir.name},nameToLook);
-            fileIndexTO = find(~cellfun(@isempty,fileIndex));
-            MyData.(curSubject).(cond(j)) = edfread([dataDir(fileIndexTO).folder '\' dataDir(fileIndexTO).name]);
+            fileIndexToSearch = find(~cellfun(@isempty,fileIndex));
+            [MyData.(curSubject).(cond(j)).header,MyData.(curSubject).(cond(j)).record] = ...
+                edfread([dataDir(fileIndexToSearch).folder '\' dataDir(fileIndexToSearch).name]);
         
         end
     end

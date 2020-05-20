@@ -1,4 +1,4 @@
-function [MyData] = BuildStruct(dataDir)
+function [MyData] = buildStruct(dataDir)
     MyData = struct();
     for i = 1:length(dataDir)
         curSubject = char("subject" + i);

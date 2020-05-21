@@ -37,5 +37,6 @@ for i = 1:numOfSub
    pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    dftEC = dftPS(signalEC,windowTP,overlapTP);
    dftEO = dftPS(signalEO,windowTP,overlapTP);
+   plotPS(fftSpecEC,pWelchEC,dftEC)
 end
 

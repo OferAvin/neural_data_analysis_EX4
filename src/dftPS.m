@@ -1,4 +1,4 @@
-function dftResults = dftPs(signal,window,overlap)
+function dftResults = dftPS(signal,window,overlap)
 k = 1:window;
 n = 1:window;
 W = exp(-2.*pi.*1i.*n'*k/window);

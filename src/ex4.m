@@ -2,6 +2,7 @@ clear all
 close all
 
 %% expariment param
+
 fs = 256; % sampling frequency, Hz
 dt = 1/fs; % time step [sec]
 f = 6:0.1:14; % Define a frequency band to picture Alpha waves
@@ -26,6 +27,7 @@ validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
 MyData = buildStruct(MyFiles,numOfSub,cond);
 
 %% extract power spectrum
+
 for i = 1:numOfSub
    curSubject = char("subject" + i);
    titleEC = char(cond(1) + "_data");

@@ -33,9 +33,9 @@ for i = 1:numOfSub
    signalEO = MyData.(curSubject).(cond(2)).record(elecNum,:);
    fftSpecEC = fftPS(signalEC);
    fftSpecEO = fftPS(signalEO);
-   pWelchEC = 
-   pWelchEO = 
+   pWelchEC = pwelch(signalEC, windowTP, overlapTP, f, fs);
+   pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    dftEC = dftPS(signalEC,windowTP,overlapTP);
-   dftEO = dftPS(signalEC,windowTP,overlapTP);
+   dftEO = dftPS(signalEO,windowTP,overlapTP);
 end
 

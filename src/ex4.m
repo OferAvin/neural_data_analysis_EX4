@@ -29,10 +29,3 @@ for i = 1:numOfSub
     end
 end
 
-N = 10;
-for k=0:N-1
-    for l=0:N-1
-        w(k+1,l+1)=cos((2*pi*k*l)/N)-1*sin((2*pi*k*l)/N);
-    end
-end
-

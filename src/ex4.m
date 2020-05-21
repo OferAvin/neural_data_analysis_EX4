@@ -25,6 +25,7 @@ numOfSub = length(MyFiles)/length(cond);
 validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
 MyData = buildStruct(MyFiles,numOfSub,cond);
 
+%% extract power spectrum
 for i = 1:numOfSub
    curSubject = char("subject" + i);
    titleEC = char(cond(1) + "_data");
@@ -37,14 +38,7 @@ for i = 1:numOfSub
    pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    dftEC = dftPS(signalEC,windowTP,overlapTP);
    dftEO = dftPS(signalEO,windowTP,overlapTP);
-   plotPS(f,fftSpecEC,pWelchEC,dftEC);
+   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO);
 end
-
-%% bulding complex metrix
-k = 1:window;
-n = 1:window;
-W = exp(-2.*pi.*1i.*n'*k/window);
-spectromVec =  spectromPower(MyData,cond(1),'subject1',electrodeNum);
-resVec = buildDftMetrix(window,noverlap,spectromVec);
 
 

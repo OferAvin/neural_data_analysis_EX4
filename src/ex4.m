@@ -39,3 +39,11 @@ for i = 1:numOfSub
    dftEO = dftPS(signalEO,windowTP,overlapTP);
 end
 
+%% bulding complex metrix
+k = 1:window;
+n = 1:window;
+W = exp(-2.*pi.*1i.*n'*k/window);
+spectromVec =  spectromPower(MyData,cond(1),'subject1',electrodeNum);
+resVec = buildDftMetrix(window,noverlap,spectromVec);
+
+

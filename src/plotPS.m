@@ -1,10 +1,10 @@
-function plotPS(f,fft1,pwelch1,dft1,fft2,pwelch2,dft2,subNum)
+function plotPS(f,fft1,pwelch1,dft1,fft2,pwelch2,dft2,subNum,freqValsEC,freqValsEO)
     figure();
     sgtitle(char("Subject " + subNum + " Power Spectrum calculated by:"));
     subplot(1,3,1);
-    plot(fft1,'Color','b');
+    plot(freqValsEC,fft1,'Color','b');
     hold on;
-    plot(fft2,'Color','r');
+    plot(freqValsEO,fft2,'Color','r');
     title("fft");
     hold off;
     

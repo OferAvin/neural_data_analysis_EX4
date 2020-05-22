@@ -32,18 +32,14 @@ for i = 1:numOfSub
    curSubject = char("subject" + i);
    signalEC = MyData.(curSubject).(cond(1)).record(elecNum,:);   
    signalEO = MyData.(curSubject).(cond(2)).record(elecNum,:);
-   fftSpecEC = fftPS(signalEC);
-   fftSpecEO = fftPS(signalEO);
+   [fftSpecEC,freqValsEC] = fftPS(signalEC,fs,f);
+   [fftSpecEO,freqValsEO] = fftPS(signalEO,fs,f);
    pWelchEC = pwelch(signalEC, windowTP, overlapTP, f, fs);
    pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    dftEC = dftPS(signalEC,windowTP,overlapTP);
    dftEO = dftPS(signalEO,windowTP,overlapTP);
-   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,cond);
-   [fftIAF,fftMaxDifVal,fftFreqValMax] = calcIAF(fftSpecEC,fftSpecEO,f);
-   [pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax] = calcIAF(pWelchEC,pWelchEO,f);
-   [dftIAF,dftMaxDifVal,dftFreqValMax] = calcIAF(dftEC,dftEO,f);
-   plotIAF(fftIAF,fftMaxDifVal,fftFreqValMax,pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax,...
-    dftIAF,dftMaxDifVal,dftFreqValMax,subNum);
+   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO);
+   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO);
 end
 
 

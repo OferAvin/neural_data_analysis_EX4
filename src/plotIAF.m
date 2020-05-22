@@ -1,4 +1,4 @@
-function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO)
+function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,cond)
     
     [fftIAF,fftMaxDifVal,fftFreqValMax]= calcIAF(fftSpecEC,fftSpecEO,freqValsEC);
     [pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax]= calcIAF(pWelchEC,pWelchEO,f);
@@ -6,7 +6,7 @@ function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsE
     
     
     figure();
-    sgtitle(char("Subject " + i + "Difference spectrum using: "));
+    sgtitle(char("Subject " + i + " Difference spectrum using: "));
     subplot(1,3,1);
     plot(freqValsEC,fftIAF,'Color','b');
     hold on;
@@ -14,6 +14,8 @@ function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsE
     'DisplayName','IAF')
     title("fft");
     ylim([0 inf]);
+    ylabel("Power",'FontSize',13);
+    xlabel("Frequency[Hz]");
     hold off;
     
     subplot(1,3,2);
@@ -23,6 +25,7 @@ function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsE
     'DisplayName','IAF')
     title("pwelch");
     ylim([0 inf]);
+    xlabel("Frequency[Hz]");
     hold off;
     
     subplot(1,3,3);
@@ -32,6 +35,7 @@ function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsE
     'DisplayName','IAF')
     title("DFT");
     ylim([0 inf]);
-    legend("EC","EO");
+    xlabel("Frequency[Hz]");
+    legend(cond(1),cond(2));
     hold off;
 end

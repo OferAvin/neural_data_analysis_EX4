@@ -38,8 +38,8 @@ for i = 1:numOfSub
    pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    dftEC = dftPS(signalEC,windowTP,overlapTP);
    dftEO = dftPS(signalEO,windowTP,overlapTP);
-   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO);
-   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO);
+   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO,cond);
+   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,cond);
 end
 
 

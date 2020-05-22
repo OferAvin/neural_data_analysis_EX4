@@ -1,4 +1,4 @@
-function plotPS(f,fft1,pwelch1,dft1,fft2,pwelch2,dft2,subNum,cond)
+function plotPS(f,fft1,pwelch1,dft1,fft2,pwelch2,dft2,subNum)
     figure();
     sgtitle(char("Subject " + subNum + " Power Spectrum calculated by:"));
     subplot(1,3,1);

@@ -1,11 +1,5 @@
-function calcIAF(signalEC,signalEO,method,subjectNum)
-    diffSpectrum=signalEO-signalEO;
-    [IAF,maxIndex]=max(diffSpectrum);
-    figure('Name',strcat('Difference spectrum using'," ",method,...
-    ' for subject'," ",num2str(subject)));
-    hold on;
-    xlabel('Frequency(Hz)')
-    ylabel(strcat('Power Spectrum'," ",units))
-    
-    
+function[IAFVec,maxDifVal,freqValMax]= calcIAF(signalEC,signalEO,freq)
+    IAFVec=signalEC-signalEO;
+    [maxDifVal,maxIndex]=max(IAFVec);
+    freqValMax = freq(maxIndex);
 end

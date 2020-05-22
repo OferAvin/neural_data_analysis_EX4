@@ -39,6 +39,11 @@ for i = 1:numOfSub
    dftEC = dftPS(signalEC,windowTP,overlapTP);
    dftEO = dftPS(signalEO,windowTP,overlapTP);
    plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,cond);
+   [fftIAF,fftMaxDifVal,fftFreqValMax] = calcIAF(fftSpecEC,fftSpecEO,f);
+   [pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax] = calcIAF(pWelchEC,pWelchEO,f);
+   [dftIAF,dftMaxDifVal,dftFreqValMax] = calcIAF(dftEC,dftEO,f);
+   plotIAF(fftIAF,fftMaxDifVal,fftFreqValMax,pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax,...
+    dftIAF,dftMaxDifVal,dftFreqValMax,subNum);
 end
 
 

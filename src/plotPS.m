@@ -1,5 +1,9 @@
+%this function plots all power spectrums by fft pwelch and dft 
+%each figure represents a subject, both conditions are shown in the same plot
+%all spectrums shown are in the f frequencies range.
 function plotPS(f,fft1,pwelch1,dft1,fft2,pwelch2,dft2,subNum,freqValsEC,freqValsEO,cond)
     figure();
+    
     sgtitle(char("Subject " + subNum + " Power Spectrum calculated by:"));
     subplot(1,3,1);
     plot(freqValsEC,fft1,'Color','b');

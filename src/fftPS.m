@@ -1,3 +1,5 @@
+%this function uses the fft function. it extract the spectrum in f
+%frequencies range
 function [spectorVecShift,freqVal] = fftPS(signal,fs,f)
     n=length(signal);
     freqVal=0:fs/n:fs/2;

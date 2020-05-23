@@ -4,6 +4,7 @@ function MyData = buildStruct(Files,numOfSubject,cond)
     MyData = struct();
     for i = 1:numOfSubject
         curSubject = char("subject" + i);
+        
         nameToLook1 = char(i + ".*" + cond(1));
         nameToLook2 = char(i + ".*" + cond(2));
         

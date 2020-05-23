@@ -1,6 +1,6 @@
 %this function uses the fft function. it extract the spectrum in f
 %frequencies range
-function [spectorVecShift,freqVal] = fftPS(signal,fs,f)
+function [spectromInRange,freqVal] = fftPS(signal,fs,f)
     n=length(signal);
     freqVal=0:fs/n:fs/2;
     range=(freqVal>f(1) & freqVal<f(end));
@@ -9,5 +9,4 @@ function [spectorVecShift,freqVal] = fftPS(signal,fs,f)
     spectromVec = spectromVecComplex/length(spectromVecComplex);
     spectromVecNorm = abs(spectromVec).^2;
     spectromInRange = spectromVecNorm(range);
-    spectorVecShift = fftshift(spectromInRange);
 end

@@ -11,7 +11,7 @@ elecNum = 19;
 cond = ["EC","EO"];
 
 windowSec = 5;              %window length in secs
-overlapSec = 2;             %window overlap length in secs
+overlapSec = 0;             %window overlap length in secs
 windowTP = windowSec*fs;    %window length in time points
 overlapTP = overlapSec*fs;  %window overlap length in time points
 

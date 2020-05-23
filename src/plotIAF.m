@@ -1,15 +1,15 @@
 %this function calculating the IAF and plots it for each method 
-function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,cond)
+function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq,cond)
     %find IAF for each method
-    [fftIAF,fftMaxDifVal,fftFreqValMax]= calcIAF(fftSpecEC,fftSpecEO,freqValsEC);
+    [fftIAF,fftMaxDifVal,fftFreqValMax]= calcIAF(fftSpecEC,fftSpecEO,fftFreq);
     [pwelchIAF,pwelchMaxDifVal,pwelchFreqValMax]= calcIAF(pWelchEC,pWelchEO,f);
-    [dftIAF,dftMaxDifVal,dftFreqValMax]= calcIAF(dftEC(1:length(f)),dftEO(1:length(f)),f);
+    [dftIAF,dftMaxDifVal,dftFreqValMax]= calcIAF(dftEC,dftEO,dftFreq);
     
     figure();
     
     sgtitle(char("Subject " + i + " Difference spectrum using: "));
     subplot(1,3,1);
-    plot(freqValsEC,fftIAF,'Color','b');
+    plot(fftFreq,fftIAF,'Color','b');
     hold on;
     line([fftFreqValMax fftFreqValMax],[0 fftMaxDifVal],'Color','red','LineStyle','--',...
     'DisplayName','IAF')
@@ -30,7 +30,7 @@ function plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsE
     hold off;
     
     subplot(1,3,3);
-    plot(f,dftIAF(1:length(f)),'Color','b');
+    plot(dftFreq,dftIAF,'Color','b');
     hold on;
     line([dftFreqValMax dftFreqValMax],[0 dftMaxDifVal],'Color','red','LineStyle','--',...
     'DisplayName','IAF')

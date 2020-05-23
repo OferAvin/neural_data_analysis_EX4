@@ -37,22 +37,22 @@ for i = 1:numOfSub
    signalEO = MyData.(curSubject).(cond(2)).record(elecNum,:);
    
    %perform fast fourier transformation 
-   [fftSpecEC,freqValsEC] = fftPS(signalEC,fs,f);                 
-   [fftSpecEO,freqValsEO] = fftPS(signalEO,fs,f);
+   [fftSpecEC,fftFreq] = fftPS(signalEC,fs,f);                 
+   fftSpecEO = fftPS(signalEO,fs,f);
    
    %perform fourier transformation using pwelch algorithm 
    pWelchEC = pwelch(signalEC, windowTP, overlapTP, f, fs);
    pWelchEO = pwelch(signalEO, windowTP, overlapTP, f, fs);
    
    %perform fourier transformation using discrete fourier transform 
-   dftEC = dftPS(signalEC,windowTP,overlapTP);
-   dftEO = dftPS(signalEO,windowTP,overlapTP);
+   [dftEC,dftFreq] = dftPS(signalEC,windowTP,overlapTP,fs,f);
+   dftEO = dftPS(signalEO,windowTP,overlapTP,fs,f);
    
    %plot power spectrum
-   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,freqValsEO,cond);
+   plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq,cond);
    
    %plot IAF
-   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,freqValsEC,cond);
+   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq,cond);
 end
 
 

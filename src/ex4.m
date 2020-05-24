@@ -5,8 +5,6 @@ close all
 fs = 256;       % sampling frequency, Hz
 dt = 1/fs;      % time step [sec]
 f = 6:0.1:14;   % Define a frequency band to picture Alpha waves
-dur = 180;      % duration of signal [sec]
-t = 0:dt:dur;   % times vector [sec]
 elecNum = 19;
 cond = ["EC","EO"];
 

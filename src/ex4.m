@@ -1,3 +1,4 @@
+%MATLAB 2019a
 clear all
 close all
 
@@ -14,12 +15,12 @@ windowTP = windowSec*fs;    %window length in time points
 overlapTP = overlapSec*fs;  %window overlap length in time points
 
 %% data handling
-MyFiles = dir('..\DATA_DIR\**\*.edf');
+MyFiles = dir('..\DATA_DIR\**\*.edf');      %take files in that path which ands with .edf
 
 %ensure files validity
-charToValidate = '\d*E[OC]';
-validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));
-MyFiles(validateFileNames == 1) = [];
+charToValidate = '\d*E[OC]';            
+validateFileNames = cellfun('isempty',regexp({MyFiles.name},charToValidate));   %check for files that contains charToValidate
+MyFiles(validateFileNames == 1) = [];       %delete non matching files
 
 numOfSub = length(MyFiles)/length(cond);
 

@@ -51,7 +51,7 @@ for i = 1:numOfSub
    plotPS(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq,cond);
    
    %plot IAF
-   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq,cond);
+   plotIAF(f,fftSpecEC,pWelchEC,dftEC,fftSpecEO,pWelchEO,dftEO,i,fftFreq,dftFreq);
 end
 
 
